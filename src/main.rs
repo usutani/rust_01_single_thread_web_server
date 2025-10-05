@@ -27,7 +27,10 @@ fn handle_connection(mut stream: TcpStream) {
     let (status_line, filename) = if buffer.starts_with(get) {
         ("HTTP/1.1 200 OK\r\n\r\n", "hello.html")
     } else if buffer.starts_with(sleep) {
-        thread::sleep(Duration::from_secs(5));
+        for i in 1..6 {
+            println!("Count: {}", i);
+            thread::sleep(Duration::from_secs(1));
+        }
         ("HTTP/1.1 200 OK\r\n\r\n", "hello.html")
     } else {
         ("HTTP/1.1 404 NOT FOUND\r\n\r\n", "404.html")
