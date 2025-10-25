@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "rust_01_single_thread_web_server"
+name = "hello"
 version = "0.1.0"
